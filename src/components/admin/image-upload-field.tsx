@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ImageUp, Loader2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createBrowserSupabaseClient } from "@/lib/supabase/browser";
@@ -19,6 +19,10 @@ export function ImageUploadField({
   const [message, setMessage] = useState("");
   const [uploading, setUploading] = useState(false);
   const joined = useMemo(() => urls.join("\n"), [urls]);
+
+  useEffect(() => {
+    setUrls(defaultUrls);
+  }, [defaultUrls.join("\n")]);
 
   async function upload(file: File) {
     const supabase = createBrowserSupabaseClient();

@@ -87,7 +87,7 @@ export function ProductForm({
       </div>
 
       <Field label="Imagens">
-        <ImageUploadField defaultUrls={product?.images.map((image) => image.url) ?? ["/images/hero-imports.png"]} />
+        <ImageUploadField defaultUrls={product?.images.map((image) => image.url) ?? []} />
       </Field>
 
       <div className="flex justify-end">
