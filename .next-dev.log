@@ -1,0 +1,208 @@
+
+> importsimperio@0.1.0 dev
+> next dev --turbopack --port 3001
+
+   ▲ Next.js 15.5.19 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.0.10:3001
+
+ ✓ Starting...
+ ✓ Ready in 10.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 43.4s
+ GET / 200 in 50726ms
+ GET / 200 in 4900ms
+ GET / 200 in 8275ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 4.9s
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 7233ms
+ ○ Compiling /catalogo ...
+ ✓ Compiled /catalogo in 18.4s
+ ○ Compiling /categorias/[slug] ...
+ GET /catalogo 200 in 24124ms
+ GET / 200 in 9609ms
+ GET /catalogo 200 in 6025ms
+ GET /catalogo 200 in 6051ms
+ GET /catalogo 200 in 3921ms
+ GET / 200 in 8295ms
+ ✓ Compiled /categorias/[slug] in 14.9s
+ GET /catalogo 200 in 4876ms
+ GET / 200 in 7456ms
+ GET /catalogo 200 in 6342ms
+ GET / 200 in 11466ms
+ GET /categorias/eletronicos 200 in 29026ms
+ GET /categorias/eletronicos 200 in 8870ms
+ GET /categorias/eletronicos 200 in 9013ms
+ GET / 200 in 10700ms
+ GET /catalogo 200 in 6931ms
+ GET /catalogo 200 in 7252ms
+ GET / 200 in 12441ms
+ GET / 200 in 9058ms
+ GET /catalogo 200 in 7703ms
+ GET /catalogo 200 in 6626ms
+ GET /catalogo 200 in 3347ms
+ GET /catalogo 200 in 3346ms
+ GET /catalogo 200 in 1794ms
+ GET / 200 in 12469ms
+ ✓ Compiled in 980ms
+ ✓ Compiled in 732ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1093ms
+ GET / 200 in 4922ms
+ GET / 200 in 4926ms
+ GET / 200 in 3208ms
+ GET / 200 in 3203ms
+ GET / 200 in 2431ms
+ GET / 200 in 2449ms
+ ✓ Compiled in 1105ms
+ GET / 200 in 5086ms
+ GET / 200 in 5462ms
+ GET / 200 in 4850ms
+ GET / 200 in 4824ms
+ ✓ Compiled in 1852ms
+ GET / 200 in 7774ms
+ GET / 200 in 7143ms
+ GET / 200 in 2052ms
+ GET / 200 in 2046ms
+ ✓ Compiled in 1239ms
+ GET / 200 in 5884ms
+ GET / 200 in 5497ms
+ GET / 200 in 3858ms
+ GET / 200 in 3864ms
+ ✓ Compiled in 1369ms
+ GET / 200 in 4971ms
+ GET / 200 in 3503ms
+ GET / 200 in 2523ms
+ GET / 200 in 2250ms
+ GET / 200 in 4778ms
+ GET / 200 in 5210ms
+ GET / 200 in 1893ms
+ GET / 200 in 2869ms
+ ✓ Compiled in 4.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 1334ms
+ GET / 200 in 8263ms
+ GET / 200 in 8259ms
+ GET / 200 in 4649ms
+ GET / 200 in 4739ms
+ GET / 200 in 9214ms
+ GET / 200 in 9048ms
+ ✓ Compiled in 6.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 833ms
+ GET / 200 in 9532ms
+ GET / 200 in 9531ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 46.2s
+ GET / 500 in 49167ms
+ GET / 500 in 47959ms
+ GET / 500 in 48133ms
+ GET / 500 in 57171ms
+ GET /favicon.ico 500 in 2530ms
+ GET / 500 in 5441ms
+ GET /favicon.ico 500 in 20019ms
+ ✓ Compiled in 8.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 1336ms
+ GET / 200 in 18640ms
+ GET / 200 in 8816ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1523ms
+ ○ Compiling /conta/login ...
+ ✓ Compiled /conta/login in 11.4s
+ GET /conta/login 200 in 13358ms
+ GET /conta/login 200 in 3826ms
+ GET /conta/login 200 in 2408ms
+ GET /conta/login 200 in 2242ms
+ GET /conta/login 200 in 2147ms
+ GET /conta/login 200 in 2570ms
+ GET /conta/login 200 in 2012ms
+ GET /conta/login 200 in 1866ms
+ ○ Compiling /conta/cadastro ...
+ ✓ Compiled /conta/cadastro in 6.4s
+ GET /conta/cadastro?redirect=%2Fconta 200 in 7652ms
+ GET / 200 in 3961ms
+ GET / 200 in 5540ms
+ ✓ Compiled in 1060ms
+ ○ Compiling / ...
+ ✓ Compiled / in 685ms
+ GET / 200 in 4636ms
+ GET / 200 in 4654ms
+ GET / 200 in 6117ms
+ GET / 200 in 6053ms
+ GET / 200 in 3245ms
+ GET / 200 in 3231ms
+ GET / 200 in 2956ms
+ GET / 200 in 2942ms
+ GET / 200 in 2867ms
+ GET / 200 in 2864ms
+ GET / 200 in 2150ms
+ GET / 200 in 22757ms
+ GET / 200 in 6799ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1743ms
+ ✓ Compiled in 617ms
+ ○ Compiling / ...
+ ✓ Compiled / in 938ms
+ GET / 200 in 4685ms
+ GET / 200 in 4657ms
+ GET / 200 in 3466ms
+ GET / 200 in 3440ms
+ GET / 200 in 2304ms
+ GET / 200 in 2477ms
+ GET / 200 in 2226ms
+ GET / 200 in 2305ms
+ GET / 200 in 4929ms
+ GET / 200 in 4061ms
+ GET / 200 in 8948ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 3165ms
+ GET /favicon.ico 200 in 998ms
+ GET / 200 in 19925ms
+ ✓ Compiled in 391ms
+ ○ Compiling / ...
+ ✓ Compiled / in 942ms
+ GET / 200 in 4011ms
+ GET / 200 in 4436ms
+ GET / 200 in 2277ms
+ GET / 200 in 2401ms
+ GET / 200 in 3251ms
+ GET / 200 in 3378ms
+ GET / 200 in 2072ms
+ GET / 200 in 2868ms
+ GET / 200 in 2816ms
+ GET / 200 in 2175ms
+ ✓ Compiled in 2.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 1693ms
+ GET / 200 in 20853ms
+ GET / 200 in 21791ms
+ GET / 200 in 22558ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 5158ms
+ GET / 200 in 5287ms
+ GET / 200 in 2486ms
+ GET / 200 in 4316ms
+ GET / 200 in 3662ms
+ ○ Compiling / ...
+ ✓ Compiled in 8s
+ ✓ Compiled / in 3.4s
+ ✓ Compiled in 3.3s
+ ○ Compiling / ...
+ GET / 200 in 15781ms
+ GET / 200 in 13940ms
+ ✓ Compiled / in 1958ms
+ GET / 200 in 11360ms
+ GET / 200 in 13618ms
+ GET / 200 in 10302ms
+ GET / 200 in 12923ms
+ GET / 200 in 13384ms
+ ✓ Compiled in 6.8s
+ GET / 200 in 13333ms
+ GET / 200 in 13250ms
+ GET / 200 in 13098ms
+ ○ Compiling / ...
+ ✓ Compiled in 24.8s
+ ✓ Compiled / in 7.7s
+ GET / 200 in 51774ms
+ GET / 200 in 37695ms
+ GET / 200 in 39013ms
+ GET / 200 in 37958ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 4799ms
+ GET / 200 in 3127ms
