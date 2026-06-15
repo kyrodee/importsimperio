@@ -2,11 +2,15 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ArrowLeft, MessageCircle, PackageCheck, ShieldCheck, Tag } from "lucide-react";
+import { CartButton } from "@/components/catalog/cart-button";
+import { FavoriteButton } from "@/components/catalog/favorite-button";
 import { ProductCard } from "@/components/catalog/product-card";
 import { ProductGallery } from "@/components/catalog/product-gallery";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink, ExternalButtonLink } from "@/components/ui/button";
+import { getCurrentUser } from "@/lib/customer";
 import { getRelatedProducts, getSiteSettings, requireProduct } from "@/lib/db";
+import { createServerSupabaseClient } from "@/lib/supabase/server";
 import {
   buildWhatsappUrl,
   formatCurrency,
@@ -57,6 +61,22 @@ export default async function ProductPage({ params }: PageProps) {
     settings.whatsapp,
     `Olá! Tenho interesse no produto ${product.name}. Pode me enviar valor, disponibilidade e formas de compra?`,
   );
+
+  const user = await getCurrentUser();
+  let isFavorite = false;
+  let isInCart = false;
+
+  if (user) {
+    const supabase = await createServerSupabaseClient();
+    if (supabase) {
+      const [{ count: favCount }, { count: cartCount }] = await Promise.all([
+        supabase.from("favorite_products").select("*", { count: "exact", head: true }).eq("user_id", user.id).eq("product_id", product.id),
+        supabase.from("cart_items").select("*", { count: "exact", head: true }).eq("user_id", user.id).eq("product_id", product.id)
+      ]);
+      isFavorite = (favCount ?? 0) > 0;
+      isInCart = (cartCount ?? 0) > 0;
+    }
+  }
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -127,7 +147,7 @@ export default async function ProductPage({ params }: PageProps) {
               <InfoCard icon={<Tag size={18} />} label="Código" value={product.code ?? "Sob consulta"} />
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row flex-wrap">
               <ExternalButtonLink
                 href={whatsappUrl}
                 target="_blank"
@@ -135,16 +155,24 @@ export default async function ProductPage({ params }: PageProps) {
                 size="lg"
                 variant="primary"
                 icon={<MessageCircle size={18} />}
+                className="flex-1 sm:flex-none"
               >
                 Solicitar no WhatsApp
               </ExternalButtonLink>
-              <ButtonLink
-                href={product.category?.slug ? `/categorias/${product.category.slug}` : "/catalogo"}
-                size="lg"
-                variant="secondary"
-              >
-                Ver categoria
-              </ButtonLink>
+              
+              <CartButton productId={product.id} initialIsInCart={isInCart} />
+              
+              <div className="flex gap-3">
+                <FavoriteButton productId={product.id} initialIsFavorite={isFavorite} />
+                <ButtonLink
+                  href={product.category?.slug ? `/categorias/${product.category.slug}` : "/catalogo"}
+                  size="lg"
+                  variant="secondary"
+                  className="flex-1"
+                >
+                  Ver categoria
+                </ButtonLink>
+              </div>
             </div>
 
             <div className="mt-10 rounded-lg border border-white/10 bg-white/[0.035] p-6">
