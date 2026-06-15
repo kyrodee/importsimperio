@@ -7,8 +7,12 @@ import { createBrowserSupabaseClient } from "@/lib/supabase/browser";
 
 export function ImageUploadField({
   defaultUrls = [],
+  name = "image_urls",
+  maxUrls,
 }: {
   defaultUrls?: string[];
+  name?: string;
+  maxUrls?: number;
 }) {
   const [urls, setUrls] = useState(defaultUrls);
   const [manualUrl, setManualUrl] = useState("");
@@ -58,9 +62,10 @@ export function ImageUploadField({
 
   return (
     <div className="grid gap-3">
-      <input type="hidden" name="image_urls" value={joined} />
+      <input type="hidden" name={name} value={joined} />
 
-      <div className="grid gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-4">
+      {(!maxUrls || urls.length < maxUrls) ? (
+        <div className="grid gap-3 rounded-lg border border-white/10 bg-white/[0.035] p-4">
         <label className="focus-ring flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/18 bg-black/25 px-4 py-5 text-sm text-muted transition hover:border-gold/45 hover:text-white">
           {uploading ? <Loader2 size={18} className="animate-spin" /> : <ImageUp size={18} />}
           {uploading ? "Enviando..." : "Enviar imagem para o Supabase"}
@@ -91,7 +96,8 @@ export function ImageUploadField({
         </div>
 
         {message ? <p className="text-xs text-amber-100">{message}</p> : null}
-      </div>
+        </div>
+      ) : null}
 
       {urls.length > 0 ? (
         <div className="grid gap-2">

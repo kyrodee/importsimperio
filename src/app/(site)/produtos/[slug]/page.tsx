@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ArrowLeft, MessageCircle, PackageCheck, ShieldCheck, Tag } from "lucide-react";
 import { ProductCard } from "@/components/catalog/product-card";
+import { ProductGallery } from "@/components/catalog/product-gallery";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink, ExternalButtonLink } from "@/components/ui/button";
 import { getRelatedProducts, getSiteSettings, requireProduct } from "@/lib/db";
@@ -98,42 +99,14 @@ export default async function ProductPage({ params }: PageProps) {
 
       <section className="py-10 sm:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-          <div className="space-y-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-panel">
-              <Image
-                src={primaryImage}
-                alt={product.name}
-                fill
-                priority
-                sizes="(min-width: 1024px) 52vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                <Badge tone={product.status === "in_stock" ? "green" : "amber"}>
-                  {productStatusLabel(product.status)}
-                </Badge>
-                {product.featured ? <Badge tone="gold">Destaque</Badge> : null}
-              </div>
+          <div className="relative space-y-4">
+            <ProductGallery productName={product.name} images={product.images} />
+            <div className="absolute left-4 top-4 flex flex-wrap gap-2 pointer-events-none">
+              <Badge tone={product.status === "in_stock" ? "green" : "amber"}>
+                {productStatusLabel(product.status)}
+              </Badge>
+              {product.featured ? <Badge tone="gold">Destaque</Badge> : null}
             </div>
-
-            {product.images.length > 1 ? (
-              <div className="grid grid-cols-3 gap-4">
-                {product.images.slice(0, 3).map((image) => (
-                  <div
-                    key={image.id}
-                    className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-panel"
-                  >
-                    <Image
-                      src={image.url}
-                      alt={image.alt_text ?? product.name}
-                      fill
-                      sizes="20vw"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
 
           <div className="lg:pt-4">

@@ -6,6 +6,7 @@ import {
   TextInput,
   Toggle,
 } from "@/components/admin/form-controls";
+import { ImageUploadField } from "@/components/admin/image-upload-field";
 import { Button } from "@/components/ui/button";
 import type { Category } from "@/lib/types";
 
@@ -46,10 +47,10 @@ export function CategoryForm({
 
       <div className="grid gap-5 lg:grid-cols-3">
         <Field label="Imagem">
-          <TextInput
+          <ImageUploadField
             name="image_url"
-            defaultValue={category?.image_url ?? "/images/hero-imports.png"}
-            placeholder="/images/hero-imports.png"
+            maxUrls={1}
+            defaultUrls={category?.image_url ? [category.image_url] : []}
           />
         </Field>
         <Field label="Ícone">

@@ -1,5 +1,6 @@
 import { Save } from "lucide-react";
 import { Field, TextArea, TextInput } from "@/components/admin/form-controls";
+import { ImageUploadField } from "@/components/admin/image-upload-field";
 import { Button } from "@/components/ui/button";
 import type { SiteSettings } from "@/lib/types";
 
@@ -46,10 +47,10 @@ export function SettingsForm({
         <TextInput name="featured_headline" defaultValue={settings.featured_headline} />
       </Field>
 
-      <Field label="Banners" hint="Uma URL por linha. Preparado para expansão da home.">
-        <TextArea
+      <Field label="Banners" hint="Você pode enviar imagens direto para o Supabase ou colar a URL.">
+        <ImageUploadField
           name="banners"
-          defaultValue={settings.banners.map((banner) => String(banner.url ?? "")).join("\n")}
+          defaultUrls={settings.banners.map((banner) => String(banner.url ?? ""))}
         />
       </Field>
 
